@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/app_bar_toolbar"
+        />
+
+    <RelativeLayout
+        android:id="@+id/activity_add_schedule"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.example.chris.trinityscheduler.add_schedule">
+
+        <Button
+            android:text="@string/AS_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/addEntryBtn"
+            android:onClick="addEntry" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="58dp">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/shiftInfo"
+                    android:textStyle="bold|italic"
+                    android:textSize="18sp"
+                    android:text="@string/shift_info" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="@string/phone_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/phoneTitle"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_weight="1" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:ems="10"
+                    android:id="@+id/phoneTxt"
+                    android:layout_weight="3" />
+
+                <Button
+                    android:text="@string/find"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/button"
+                    android:layout_weight="0.8"
+                    android:textSize="12sp"
+                    android:onClick="findContact" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:text="@string/message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/messageTitle" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <EditText
+                    android:inputType="textMultiLine"
+                    android:id="@+id/messageTxt"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="bottom"
+                    android:hint="Your message to the duty manager"
+                    android:textSize="14sp"
+                    android:layout_marginTop="-10dp" />
+            </TableRow>
+
+            <RelativeLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/leftSplit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/diviser"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/scheduleAlarmTxt"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:text="@string/schedule_alarm" />
+
+                    <TimePicker
+                        android:id="@+id/timePickerMsg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:timePickerMode="spinner"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:layout_marginLeft="-30dp"
+                        android:layout_marginRight="-30dp"
+                        android:layout_alignParentBottom="true" />
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/diviser"
+                    android:layout_centerHorizontal="true"
+                    android:background="#CFCFCF"
+                    android:layout_width="1dp"
+                    android:layout_height="175dp"
+                    android:translationY="55dp" />
+
+                <LinearLayout
+                    android:id="@+id/rightSplit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/diviser"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:text="@string/schedule_message"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/scheduleMsgTxt"
+                        android:textSize="18sp"
+                        android:gravity="center" />
+
+                    <TimePicker
+                        android:id="@+id/timePickerAlarm"
+                        android:timePickerMode="spinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:layout_marginLeft="-30dp"
+                        android:layout_marginRight="-30dp"/>
+
+                </LinearLayout>
+            </RelativeLayout>
+        </TableLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

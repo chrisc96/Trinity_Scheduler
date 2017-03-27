@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <include layout="@layout/circletxt"
+        android:id="@+id/circle"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" />
+
+    <View
+        android:id="@+id/space"
+        android:layout_below="@+id/circle"
+        android:background="#14000000"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="100dp"
+        android:layout_height="1dp" />
+
+    <Button
+        android:background="@drawable/corner_curved_button"
+        android:text="Add Roster"
+        android:layout_height="wrap_content"
+        android:textColor="#f5ffffff"
+        android:id="@+id/button2"
+        android:layout_alignParentBottom="false"
+        android:layout_below="@+id/space"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_width="150dp"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="18sp"
+        android:onClick="startRoster"/>
+</RelativeLayout>

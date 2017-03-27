@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/app_bar_toolbar"
+        />
+
+    <RelativeLayout
+        android:id="@+id/content_excel_upload"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.example.chris.trinityscheduler.ExcelUpload">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="50dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="@string/select_your_roster_xlsx_file"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/selectInstruct"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/chooseFile"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/selectedFile" />
+
+                <TextView
+                    android:text="@string/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/setNameTxt"
+                    android:paddingRight="5dp"
+                    android:layout_alignBaseline="@+id/setName"
+                    android:layout_alignBottom="@+id/setName"
+                    android:layout_toLeftOf="@+id/setName"
+                    android:layout_toStartOf="@+id/setName"
+                    android:visibility="invisible"
+                    />
+
+                <Button
+                    android:text="@string/ok"
+                    android:id="@+id/submitOK"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:textSize="12sp"
+                    android:background="@drawable/round_button"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textColor="#fff"
+                    android:layout_alignTop="@+id/setName"
+                    android:layout_toRightOf="@+id/setName"
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignBottom="@+id/setName"
+                    android:onClick="inRoster"
+                    android:visibility="invisible"/>
+
+                <Button
+                    android:text="@string/choose_file"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/chooseFile"
+                    android:onClick="uploadOnClick"
+                    android:layout_below="@+id/selectInstruct"
+                    android:layout_centerHorizontal="true" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="5"
+                    android:id="@+id/setName"
+                    android:background="@drawable/back"
+                    android:fadeScrollbars="true"
+                    tools:fadingEdge="horizontal|vertical"
+                    android:textSize="15dp"
+                    android:padding="4dp"
+                    android:layout_below="@+id/selectedFile"
+                    android:layout_centerHorizontal="true"
+                    android:visibility="invisible"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/setName"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="13dp"
+                    android:id="@+id/workerName" />
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toStartOf="@+id/chooseFile"
+                    android:stretchColumns="*"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@+id/workerName">
+
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_height="35dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignStart="@+id/selectInstruct"
+                            android:id="@+id/day1Date"
+                            android:padding="10dp"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:layout_height="35dp"
+                            android:id="@+id/day1Shift"
+                            android:padding="10dp"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:gravity="center" />
+
+                        <Button
+                            android:text="@string/EU_add"
+                            android:layout_width="0dp"
+                            android:layout_height="35dp"
+                            android:id="@+id/day1Add"
+                            android:layout_alignTop="@+id/tableLayout2"
+                            android:layout_toEndOf="@+id/selectInstruct"
+                            android:layout_weight="1"
+                            android:visibility="invisible"
+                            android:onClick="add1Click" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="7dp">
+
+                        <TextView
+                            android:layout_height="35dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignStart="@+id/selectInstruct"
+                            android:id="@+id/day2Date"
+                            android:padding="10dp"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:layout_height="35dp"
+                            android:id="@+id/day2Shift"
+                            android:padding="10dp"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:gravity="center"/>
+
+                        <Button
+                            android:text="@string/EU_add"
+                            android:layout_width="0dp"
+                            android:layout_height="35dp"
+                            android:id="@+id/day2Add"
+                            android:layout_alignTop="@+id/tableLayout2"
+                            android:layout_toEndOf="@+id/selectInstruct"
+                            android:layout_weight="1"
+                            android:visibility="invisible"
+                            android:onClick="add2Click" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="7dp">
+
+                        <TextView
+                            android:layout_height="35dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignStart="@+id/selectInstruct"
+                            android:id="@+id/day3Date"
+                            android:padding="10dp"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_height="35dp"
+                            android:id="@+id/day3Shift"
+                            android:padding="10dp"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:gravity="center" />
+
+                        <Button
+                            android:text="@string/EU_add"
+                            android:layout_width="0dp"
+                            android:layout_height="35dp"
+                            android:id="@+id/day3Add"
+                            android:layout_alignTop="@+id/tableLayout2"
+                            android:layout_toEndOf="@+id/selectInstruct"
+                            android:layout_weight="1"
+                            android:visibility="invisible"
+                            android:onClick="add3Click" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="7dp">
+
+                        <TextView
+                            android:layout_height="35dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignStart="@+id/selectInstruct"
+                            android:id="@+id/day4Date"
+                            android:padding="10dp"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_height="35dp"
+                            android:id="@+id/day4Shift"
+                            android:padding="10dp"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:gravity="center" />
+
+                        <Button
+                            android:text="@string/EU_add"
+                            android:layout_width="0dp"
+                            android:layout_height="35dp"
+                            android:id="@+id/day4Add"
+                            android:layout_alignTop="@+id/tableLayout2"
+                            android:layout_toEndOf="@+id/selectInstruct"
+                            android:layout_weight="1"
+                            android:visibility="invisible"
+                            android:onClick="add4Click" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="7dp">
+
+                        <TextView
+                            android:layout_height="35dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignStart="@+id/selectInstruct"
+                            android:id="@+id/day5Date"
+                            android:padding="10dp"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_height="35dp"
+                            android:id="@+id/day5Shift"
+                            android:padding="10dp"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:gravity="center" />
+
+                        <Button
+                            android:text="@string/EU_add"
+                            android:layout_width="0dp"
+                            android:layout_height="35dp"
+                            android:id="@+id/day5Add"
+                            android:layout_alignTop="@+id/tableLayout2"
+                            android:layout_toEndOf="@+id/selectInstruct"
+                            android:layout_weight="1"
+                            android:visibility="invisible"
+                            android:onClick="add5Click" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="7dp">
+
+                        <TextView
+                            android:layout_height="35dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignStart="@+id/selectInstruct"
+                            android:id="@+id/day6Date"
+                            android:padding="10dp"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_height="35dp"
+                            android:id="@+id/day6Shift"
+                            android:padding="10dp"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:gravity="center" />
+
+                        <Button
+                            android:text="@string/EU_add"
+                            android:layout_width="0dp"
+                            android:layout_height="35dp"
+                            android:id="@+id/day6Add"
+                            android:layout_alignTop="@+id/tableLayout2"
+                            android:layout_toEndOf="@+id/selectInstruct"
+                            android:layout_weight="1"
+                            android:visibility="invisible"
+                            android:onClick="add6Click" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="7dp">
+
+                        <TextView
+                            android:layout_height="35dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignStart="@+id/selectInstruct"
+                            android:id="@+id/day7Date"
+                            android:padding="10dp"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_height="35dp"
+                            android:id="@+id/day7Shift"
+                            android:padding="10dp"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:gravity="center" />
+
+                        <Button
+                            android:text="@string/EU_add"
+                            android:layout_width="0dp"
+                            android:layout_height="35dp"
+                            android:id="@+id/day7Add"
+                            android:layout_alignTop="@+id/tableLayout2"
+                            android:layout_toEndOf="@+id/selectInstruct"
+                            android:layout_weight="1"
+                            android:visibility="invisible"
+                            android:onClick="add7Click" />
+
+                    </TableRow>
+
+                </TableLayout>
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
+</RelativeLayout>

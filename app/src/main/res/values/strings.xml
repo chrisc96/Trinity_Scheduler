@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Trinity Scheduler</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_closed">Close</string>
+
+
+
+    <string name="AS_add">ADD</string>
+    <string name="shift_info">Shift Info:</string>
+    <string name="phone_number">Phone Number: *</string>
+    <string name="find">Find</string>
+    <string name="message">Message: *</string>
+    <string name="schedule_message">Schedule Message</string>
+    <string name="schedule_alarm">Schedule Alarm</string>
+    <string name="name">Name:</string>
+    <string name="ok">OK</string>
+    <string name="choose_file">Choose File</string>
+    <string name="select_your_roster_xlsx_file">Select your roster (.xlsx file)</string>
+    <string name="EU_add">Add</string>
+
+
+
+</resources>
