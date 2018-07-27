@@ -20,7 +20,8 @@ public class homepage extends BaseActivity {
     private static String[] PERMISSIONS_STORAGE = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.READ_CONTACTS
+            Manifest.permission.READ_CONTACTS,
+            Manifest.permission.SET_ALARM
     };
 
     @Override
@@ -40,9 +41,10 @@ public class homepage extends BaseActivity {
         int writePermission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         int readPermission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE);
         int contactPermission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_CONTACTS);
+        int readAlarm = ActivityCompat.checkSelfPermission(activity, Manifest.permission.SET_ALARM);
 
         if (writePermission != PackageManager.PERMISSION_GRANTED || readPermission != PackageManager.PERMISSION_GRANTED
-                || contactPermission != PackageManager.PERMISSION_GRANTED) {
+                || contactPermission != PackageManager.PERMISSION_GRANTED || readAlarm != PackageManager.PERMISSION_GRANTED) {
 
             // We don't have permission so prompt the user
             ActivityCompat.requestPermissions(

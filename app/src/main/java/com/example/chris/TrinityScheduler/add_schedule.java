@@ -80,30 +80,59 @@ public class add_schedule extends BaseActivity {
     }
 
     public int amPm(int hour) {
-        return (hour < 12) ? 0 : 1; // 0 = AM, 1 = PM
+        return (hour < 12) ? 1 : 0; // 1 = AM, 0 = PM
+    }
+
+    public int monthToInt(String month) {
+        int intMonth = 0;
+        switch(month) {
+            case "Jan":
+                intMonth = 1;
+                break;
+            case "Feb":
+                intMonth = 2;
+                break;
+            case "Mar":
+                intMonth = 3;
+                break;
+            case "Apr":
+                intMonth = 4;
+                break;
+            case "May":
+                intMonth = 5;
+                break;
+            case "Jun":
+                intMonth = 6;
+                break;
+            case "Jul":
+                intMonth = 7;
+                break;
+            case "Aug":
+                intMonth = 8;
+                break;
+            case "Sep":
+                intMonth = 9;
+                break;
+            case "Oct":
+                intMonth = 10;
+                break;
+            case "Nov":
+                intMonth = 11;
+                break;
+            case "Dec":
+                intMonth = 12;
+                break;
+        }
+        return intMonth;
     }
 
     public String intoDate(int hour, int minute, int amPm) {
-        int month = 0;
-        switch(date.substring(3,6)) {
-            case "Jan": month = 1;
-            case "Feb": month = 2;
-            case "Mar": month = 3;
-            case "Apr": month = 4;
-            case "May": month = 5;
-            case "Jun": month = 6;
-            case "Jul": month = 7;
-            case "Aug": month = 8;
-            case "Sep": month = 9;
-            case "Oct": month = 10;
-            case "Nov": month = 11;
-            case "Dec": month = 12;
-        }
+
         DateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy hh:mm a");
         Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.YEAR, Integer.parseInt(date.substring(7,11))-1);
-        cal.set(Calendar.MONTH, month);
-        cal.set(Calendar.DAY_OF_MONTH, Integer.valueOf(date.substring(0,2))-1);
+        cal.set(Calendar.YEAR, Integer.parseInt(date.substring(7,11)));
+        cal.set(Calendar.MONTH, monthToInt(date.substring(3,6))-1);
+        cal.set(Calendar.DAY_OF_MONTH, Integer.valueOf(date.substring(0,2)));
         cal.set(Calendar.HOUR, hour);
         cal.set(Calendar.MINUTE, minute);
         cal.set(Calendar.AM_PM, amPm);
